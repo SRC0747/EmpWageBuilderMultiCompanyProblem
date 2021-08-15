@@ -89,5 +89,7 @@ public class EmployeeWageBuilder {
         empWageBuilder.addEmployeeWageBuilder("DMart",20,2,10);
         empWageBuilder.addEmployeeWageBuilder("Reliance",10,4,20);
         empWageBuilder.computeEmpWage();
+        System.out.println("TotalWage fot DMart company:"+empWageBuilder.getTotalWage("DMart"));
+        System.out.println("TotalWage fot DMart company:"+empWageBuilder.getTotalWage("Reliance"));
     }
 }
