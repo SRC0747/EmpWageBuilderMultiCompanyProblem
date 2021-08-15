@@ -38,8 +38,16 @@ public class EmployeeWageBuilder {
         System.out.println("Employee Wage is:"+totalEmpWage);
         return totalEmpWage;
     }
+
+    public static void companyPersonalDetails()
+    {
+        System.out.println("Our Company Details is given below:");
+        computeEmployeeWage();
+    }
+
     public static void main(String[] args)
     {
         computeEmployeeWage();
+        companyPersonalDetails();
     }
 }
