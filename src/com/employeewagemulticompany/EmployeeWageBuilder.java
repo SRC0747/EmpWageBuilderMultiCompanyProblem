@@ -38,7 +38,8 @@ public class EmployeeWageBuilder {
             companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
             numOfCompany++;
             EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
-
+            empWageBuilderList.add(empWageBuilder);
+            companyToEmpWageMap.put(company,empWageBuilder);
         }
     }
 
