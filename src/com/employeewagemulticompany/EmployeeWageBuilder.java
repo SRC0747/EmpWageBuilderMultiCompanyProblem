@@ -1,8 +1,9 @@
 package com.employeewagemulticompany;
 
 public class EmployeeWageBuilder {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Problem.");
+    public static int computeEmployeeWage()
+    {
+        System.out.println("Welcome to Employee Wage computation program on Master Branch.");
         int IS_FULL_TIME=2;
         int IS_PART_TIME=1;
         int EMP_RATE_PER_HOUR=20;
@@ -35,5 +36,10 @@ public class EmployeeWageBuilder {
         }
         int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
         System.out.println("Employee Wage is:"+totalEmpWage);
+        return totalEmpWage;
+    }
+    public static void main(String[] args)
+    {
+        computeEmployeeWage();
     }
 }
