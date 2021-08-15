@@ -24,11 +24,13 @@ public class EmployeeWageBuilder {
         return "Total employee wage for company:"+company+"is:"+totalEmpWage;
     }
 
-    public class EmpWageBuilderArray{
+    public class EmpWageBuilderArray implements IComputeEmpWage{
         public static final int IS_FULL_TIME=2;
         public static final int IS_PART_TIME=1;
         private int numOfCompany = 0;
         private CompanyEmpWage[] companyEmpWageArray;
+        private LinkedList<EmployeeWageBuilder>EmployeeWageBuilderList;
+        private Map<String,CompanyEmpWage>companyToEmpWageMap;
 
         public EmpWageBuilderArray() {
             companyEmpWageArray = new companyEmpWageArray[5];
@@ -44,10 +46,11 @@ public class EmployeeWageBuilder {
     }
 
     public void computeEmpWage(){
-        for (int i=0; i<numOfCompany; i++)
+        for (int i=0; i<companyEmpWageList.size(); i++)
         {
-            companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-            System.out.println(companyEmpWageArray[i]);
+            CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
+            companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+            System.out.println(companyEmpWage);
         }
     }
 
