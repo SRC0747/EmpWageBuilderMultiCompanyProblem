@@ -9,9 +9,13 @@ public class EmployeeWageBuilder {
         int day=1;
         int empHrs=0;
         int empWage=0;
-        int workingDays=20;
-        int empCheck=(int) Math.floor(Math.random()*10)%3;
-        for(day=1; day<=workingDays; day++) {
+        int totalEmpHrs=0;
+        int totalWorkingDays=0;
+        int workingDays=2;
+        int MAX_HRS_IN_MONTH=10;
+        while (totalEmpHrs<=MAX_HRS_IN_MONTH && totalWorkingDays<workingDays) {
+            totalWorkingDays++;
+            int empCheck=(int) Math.floor(Math.random()*10)%3;
             switch (empCheck) {
                 case 2:
                     System.out.println("Employee Full-time Present.");
@@ -26,8 +30,10 @@ public class EmployeeWageBuilder {
                     empHrs = 0;
                     break;
             }
+            totalEmpHrs += empHrs;
+            System.out.println("DAy:"+totalWorkingDays+"Employee Hours:"+empHrs);
         }
-        empWage = empHrs * EMP_RATE_PER_HOUR;
-        System.out.println("Employee Wage is:"+empWage);s
+        int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+        System.out.println("Employee Wage is:"+totalEmpWage);
     }
 }
