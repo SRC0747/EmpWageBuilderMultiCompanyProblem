@@ -1,5 +1,9 @@
 package com.employeewagemulticompany;
-
+public interface IComputeEmpWage{
+    private void addEmployeeWageBuilder(String company,int empRatePerHour,int numOfWorkingDays, int maxHoursPerMonth);
+    public void computeEmpWage();
+    public int getTotalWage(String company);
+}
 public class EmployeeWageBuilder {
     public final String company;
    public final int empRatePerHour;
@@ -26,13 +30,15 @@ public class EmployeeWageBuilder {
         private int numOfCompany = 0;
         private CompanyEmpWage[] companyEmpWageArray;
 
-        public EmpWageBuilderArray(){
+        public EmpWageBuilderArray() {
             companyEmpWageArray = new companyEmpWageArray[5];
         }
         private void addEmployeeWageBuilder(String company,int empRatePerHour,int numOfWorkingDays, int maxHoursPerMonth)
         {
             companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
             numOfCompany++;
+            EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
+
         }
     }
 
@@ -67,10 +73,15 @@ public class EmployeeWageBuilder {
         totalEmpWage = totalEmpHrs * empRatePerHour;
         return totalEmpWage;
     }
+    public int getTotalWage(String company)
+    {
+        return companyToEmpWageMap.get(company).totalEmpWage;
+    }
 
     public static void main(String[] args)
     {
-        EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
+        IComputeEmpWage empWageBuilder = new EmpWageBuilder();
+        //EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
         empWageBuilder.addEmployeeWageBuilder("DMart",20,2,10);
         empWageBuilder.addEmployeeWageBuilder("Reliance",10,4,20);
         empWageBuilder.computeEmpWage();
